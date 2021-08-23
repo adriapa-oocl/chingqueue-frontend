@@ -1,16 +1,13 @@
 language: node_js
-
 node_js:
-  - "12"
-
+- '12'
 script:
-    - npm test
-    - npm run build
-
+- npm test
+- npm run build
 deploy:
   provider: heroku
   api_key:
-    secure: VbKlF+mwWyn7hBiY1Cn9gVDJhL7lbRX6JrbqWk5kkLLFeZVfTrLYRk1JOYur9Bii5OCFZ0ywiYQQNaUeNt5jh9SedPGXLlnBbmz80d6Hj0VTogEeF4oe4Gn42BMRjPeboCN1IQUfmXYj2j3eywHfKyGgt+wG4P+Yl99bIrAapraZQusPiUxXfemy7nVes2/cWCj5FB0ioITqzSD/Pj3v+vyT4QpYUGy7gA3wc4wyUI2N4x/1DIvIlmjV39RrdoTPiDTvmQu+emkInZ76yafZ12yVI04SaxM5r8s9TGsC9oE0OEqQT7uuawCI3x5KVsFaT3y6b810XdNcW1DOsTtbg/nw/FWgjs+WZbz7YfzaYk5aDCdEjyCCs/Ft5CGRtnUOuCF9y5xqmf2/4WB6aAljgtfZLmcAjEy7ln8Hn1DCSwuOgJA+R9A1JYDT9L85Ksss2twu55qmVTiyXpjW8RZoY9wWT2KHTX0gM+3AtAbvQ1gQun5Q0Cg5RJcoTKHmtn1mB2lvR2l12a7wJ1HNcW8swbpR5R9b1J/+baU4pVpfufK+1PTwkkZP8O7ORFdUBhH9Dr6pKlWWzJjWQ7M4IBO620l5X29nD9GBci+q+zweG9HkXTa8k5XlrDyc/knTzleEozD1ipCqrelInBqM1Nk+UDzZEN8MIVP9OoSkyBZJF+Q=
+    secure: D+t+XaNErAP8JRi/hDVR2gxPFoTyUNAsSeb8GUOBR1FhG6NiXOt0rCl70y3zpO1TXLfwPmsO7c4rulhXOQvrEhNtEW21HiFpwsxVtwvK3g+/wQW6lZ3XzaEmsp46Jy2XZt8kJcKJ8vf+rRB43f0IuDY+tTqTB0y7h6rYgOeyHYj0mmcILxu/vUkh85eexZxtAzhrR3Ct3p2SQD+/G2X77Ug+/yjbOQHYSZyaHMi8NnmbLPqbvhBKI+LgLHhSkX9JLGBUolfZ+Q+4I7DfHdt8yCPOfLOS2yqg4ua3isonsdRdK9te/tpqlVVEZGXQ51bFmnDSxamPFeS4OfsSL7KSkuQub3s3SGg96d7zmNiqmT4SLNvejhh6BY6RTgGiI/9MSL2rkYLsQFx9UO5UYKrUCzIXryXMdyCzoUuoIjTBH96189c8/WfgGF6I9j8iPWl/rQf+BpXdPU92KonUFWvXUsEBOq9ky76YjP9DEwynMDpDBJp6ZYWy/o7gB+Xmqv7FBc/s/B+rkOVkYWuOS51llw2c4DbLcO/Bb7CJbb9ltOa+z8kt3vLFZurvqr+pck3WSnyMcKD4M/F+dZNFbc8JzJVJ57yzQWlK2Gkc/j+4QkPeGv7cr0jHda5WCdU7S79WUcpxzfqOHtjNuOu6QjlwcCzcOddIV2X6CfJdtWssKqQ=
   app: chingqueue
   on:
     repo: adriapa-oocl/chingqueue-frontend
