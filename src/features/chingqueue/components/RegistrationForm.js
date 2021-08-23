@@ -1,7 +1,5 @@
-import {useState} from 'react'
-import { Form, Input, Select, Row, Col, Checkbox, Button, AutoComplete, message } from 'antd';
+import { Form, Input, Button, message } from 'antd';
 import  {addUser}  from '../../apis/UserApi';
-const { Option } = Select;
 
 const formItemLayout = {
   labelCol: {
@@ -54,13 +52,8 @@ function RegistrationForm() {
 
     };
 
-    const onFinishFailed = (errorInfo) =>{
-
-        console.log('Failed:', errorInfo);
-        const onFinishFailed=()=>{
-            message.error('Invalid');
-        }
-
+    const onFinishFailed = () =>{
+      message.error('Invalid User Details')
     };
 
     const [form] = Form.useForm();

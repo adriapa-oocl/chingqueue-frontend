@@ -1,5 +1,4 @@
-import {Layout, Input, Image, Modal, Button } from 'antd';
-import { AudioOutlined } from '@ant-design/icons';
+import {Layout, Input, Modal, Button } from 'antd';
 import '../styles/header.css'
 import React, { useState } from 'react';
 import Settings from './Settings';
@@ -29,15 +28,6 @@ const Header = () => {
     setIsLogInModalVisible(false);
     setIsSignupModalVisible(false);
   };
-
-  const suffix = (
-    <AudioOutlined
-      style={{
-        fontSize: 16,
-        color: '#1890ff',
-      }}
-    />
-  );
   
   return( 
     
