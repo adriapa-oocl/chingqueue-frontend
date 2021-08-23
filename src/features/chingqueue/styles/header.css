@@ -16,3 +16,19 @@
     padding-right: 200px;
     
   }
+
+  .username{
+    color: whitesmoke;
+    float: right;
+  }
+
+  .SignIn{
+    margin-left: 5px;
+    margin-top: 15px;
+    margin-right: 8px;
+  }
+  
+  .Settings{
+    position: absolute;
+    right: 20px;
+  }
