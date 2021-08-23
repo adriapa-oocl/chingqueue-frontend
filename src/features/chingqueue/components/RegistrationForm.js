@@ -38,7 +38,7 @@ function RegistrationForm() {
 
     const validateRegistration = (userCreds) =>{
        
-        let registrationCreds = {full_name:userCreds.fullName, username: userCreds.email, password: userCreds.password, contact_num: userCreds.phone, address: userCreds.address  };
+        let registrationCreds = {full_name:userCreds.fullName, username: userCreds.username, password: userCreds.password, contact_num: userCreds.phone, address: userCreds.address  };
         addUser(registrationCreds).then((response)=>{
 
         console.log(registrationCreds);
@@ -102,25 +102,16 @@ function RegistrationForm() {
       form={form}
       name="register"
       onFinish={validateRegistration}
-      initialValues={{
-        residence: ['zhejiang', 'hangzhou', 'xihu'],
-        prefix: '86',
-      }}
+    
       scrollToFirstError
     >
       <Form.Item
-        name="email"
-        label="E-mail"
-        rules={[
-          {
-            type: 'email',
-            message: 'The input is not valid E-mail!',
-          },
-          {
-            required: true,
-            message: 'Please input your E-mail!',
-          },
-        ]}
+        name="username"
+        label="Username"
+        rules={[{
+        required:true,
+        message:'Please input your username!'
+        }]}
       >
         <Input />
       </Form.Item>
@@ -166,6 +157,11 @@ function RegistrationForm() {
       <Form.Item
       name="fullName"
       label="Full name"
+      rules={[{
+          required:true,
+          message:"Please input your full name!"
+      }]
+      }
     >
       <Input />
     </Form.Item>
@@ -173,12 +169,6 @@ function RegistrationForm() {
       <Form.Item
         name="phone"
         label="Contact number"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your phone number!',
-          },
-        ]}
     
       >  
         <Input/>
