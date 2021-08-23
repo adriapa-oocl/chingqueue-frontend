@@ -1,25 +1,25 @@
-import React from 'react'
-import {Layout, Input, Image } from 'antd'
+import React from 'react';
+import {Layout, Input, Image } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
-import '../../styles/header.css'
+import '../../styles/header.css';
 
 
 const header = () => {
-    const { Header } = Layout;
-    const { Search } = Input;
-    const onSearch = value => console.log(value);
+  const { Header } = Layout;
+  const { Search } = Input;
+  const onSearch = value => console.log(value);
 
-const suffix = (
-  <AudioOutlined
-    style={{
-      fontSize: 16,
-      color: '#1890ff',
-    }}
-  />
-);
-    return(
-        
-      <Layout className="layout">
+  const suffix = (
+    <AudioOutlined
+      style={{
+        fontSize: 16,
+        color: '#1890ff',
+      }}
+    />
+  );
+  
+  return( 
+    <Layout className="layout">
     <Header >
       <div className="logo" />
       <div className="location">
