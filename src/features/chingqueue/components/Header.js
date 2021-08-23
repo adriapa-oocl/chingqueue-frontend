@@ -1,10 +1,10 @@
 import React from 'react';
 import {Layout, Input, Image } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
-import '../../styles/header.css';
+import '../styles/header.css'
 
 
-const header = () => {
+const Header = () => {
   const { Header } = Layout;
   const { Search } = Input;
   const onSearch = value => console.log(value);
@@ -19,20 +19,19 @@ const header = () => {
   );
   
   return( 
-    <Layout className="layout">
+    
     <Header >
       <div className="logo" />
-      <div className="location">
-      <img  className="responsive "src="https://i.imgur.com/bP82k1G.png" />
-      <Search className="search" placeholder="input search text" onSearch={onSearch} enterButton />
+        <div className="location">
+        <img  className="responsive "src="https://i.imgur.com/bP82k1G.png" />
+        <Search className="search" placeholder="input search text" onSearch={onSearch} enterButton />
       </div>
-      
-
     </Header>
-    </Layout>
+    
+    
     )
 }
 
 
 
-export default header
+export default Header
