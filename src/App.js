@@ -1,4 +1,4 @@
-import './App.css';
+import './features/chingqueue/styles/App.css'
 
 function App() {
   return (
