@@ -63,39 +63,7 @@ function RegistrationForm() {
 
     };
 
-
     const [form] = Form.useForm();
-
-    const onFinish = (values) => {
-      console.log('Received values of form: ', values);
-    };
-  
-    const prefixSelector = (
-      <Form.Item name="prefix" noStyle>
-        <Select
-          style={{
-            width: 70,
-          }}
-        >
-          <Option value="86">+86</Option>
-          <Option value="87">+87</Option>
-        </Select>
-      </Form.Item>
-    );
-    const [autoCompleteResult, setAutoCompleteResult] = useState([]);
-  
-    const onWebsiteChange = (value) => {
-      if (!value) {
-        setAutoCompleteResult([]);
-      } else {
-        setAutoCompleteResult(['.com', '.org', '.net'].map((domain) => `${value}${domain}`));
-      }
-    };
-  
-    const websiteOptions = autoCompleteResult.map((website) => ({
-      label: website,
-      value: website,
-    }));
     return (
         <Form
       {...formItemLayout}
