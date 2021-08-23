@@ -3,6 +3,9 @@ import { AudioOutlined } from '@ant-design/icons';
 import '../styles/header.css'
 import React, { useState } from 'react';
 import Settings from './Settings';
+import UserLogin from './UserLogin';
+import RegistrationForm from './RegistrationForm';
+
 
 
 const Header = () => {
@@ -11,18 +14,20 @@ const Header = () => {
   const { Search } = Input;
   const onSearch = value => console.log(value);
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isLogInModalVisible, setIsLogInModalVisible] = useState(false);
+  const [isSignupModalVisible, setIsSignupModalVisible] = useState(false);
 
-  const showModal = () => {
-    setIsModalVisible(true);
+  const showLogInModal = () => {
+    setIsLogInModalVisible(true);
   };
 
-  const handleOk = () => {
-    setIsModalVisible(false);
+  const showSignupModal = () => {
+    setIsSignupModalVisible(true);
   };
 
   const handleCancel = () => {
-    setIsModalVisible(false);
+    setIsLogInModalVisible(false);
+    setIsSignupModalVisible(false);
   };
 
   const suffix = (
@@ -45,17 +50,23 @@ const Header = () => {
         
         <span className="username">
         Username text here
-        <Button type="primary" className="SignIn" onClick={showModal}>
+        <Button type="primary" className="SignIn" onClick={showLogInModal}>
         Sign In 
-        </Button> 
+        </Button>
+        <Button type="primary" className="SignIn" onClick={showSignupModal}>
+        Sign Up 
+        </Button>  
         <Settings className="Settings"/>
         </span>
 
       <>
-      <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+      <Modal title="Log-in to ChingQueue!" visible={isLogInModalVisible} onCancel={handleCancel} okButtonProps={{ style: { display: 'none' } }}>
+        
+        <UserLogin/>
+
+      </Modal>
+      <Modal title="Register" visible={isSignupModalVisible} onCancel={handleCancel} okButtonProps={{ style: { display: 'none' } }}>
+        <RegistrationForm/>
       </Modal>
       </>
     </div>     

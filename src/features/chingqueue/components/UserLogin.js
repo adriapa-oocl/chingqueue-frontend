@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { AddUserToState } from '../components/reducers/UserReducer'
 
 function UserLogin() {
+
     const dispatch = useDispatch()
     const validateLogin = (userCreds) => {
         const loginCreds = {username: userCreds.username, password: userCreds.password}
@@ -21,11 +22,10 @@ function UserLogin() {
       };
 
     return (
-        <div className="login-form">
-            <h1>Log-in to ChingQueue!</h1><br/>
+        <div>
             <Form name="loginForm"
-                labelCol={{span: 11,}}
-                wrapperCol={{span: 3,}}
+                labelCol={{span: 8,}}
+                wrapperCol={{span: 12,}}
                 initialValues={{remember: true,}}
                 onFinish={validateLogin}
                 onFinishFailed={onFinishFailed}
