@@ -1,0 +1,34 @@
+.search {
+   border-radius: 5px;
+   max-width: 20%;
+   padding-top: 15px;
+    margin-top: 2px;
+    margin-right: 200px;
+}
+.responsive {
+    width: 150px;
+    height: 30px;
+    margin-right: 20px;
+   
+    
+  }
+  .location {
+    padding-right: 200px;
+    
+  }
+
+  .username{
+    color: whitesmoke;
+    float: right;
+  }
+
+  .SignIn{
+    margin-left: 5px;
+    margin-top: 15px;
+    margin-right: 8px;
+  }
+  
+  .Settings{
+    position: absolute;
+    right: 20px;
+  }
