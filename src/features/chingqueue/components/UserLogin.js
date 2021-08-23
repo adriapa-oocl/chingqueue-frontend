@@ -1,22 +1,29 @@
 import React from 'react'
-import { Form, Input, Button, Checkbox } from 'antd'
+import { Form, Input, Button, Checkbox, message } from 'antd'
+import { LoginUser } from '../../apis/UserApi'
 
 function UserLogin() {
-    const onFinish = (values) => {
-        console.log('Success:', values);
+    const validateLogin = (userCreds) => {
+        let loginCreds = {username: userCreds.username, password: userCreds.password}
+        LoginUser(loginCreds).then((response) => {
+            console.log(response.data)
+        }).catch(() => {
+            onFinishFailed();
+        })
       };
     
-      const onFinishFailed = (errorInfo) => {
-        console.log('Failed:', errorInfo);
+      const onFinishFailed = () => {
+        message.error('Invalid User!');
       };
 
     return (
         <div className="login-form">
+            <h1>Log-in to ChingQueue!</h1><br/>
             <Form name="loginForm"
                 labelCol={{span: 11,}}
                 wrapperCol={{span: 3,}}
                 initialValues={{remember: true,}}
-                onFinish={onFinish}
+                onFinish={validateLogin}
                 onFinishFailed={onFinishFailed}
             >
             <Form.Item label="Username" name="username"
