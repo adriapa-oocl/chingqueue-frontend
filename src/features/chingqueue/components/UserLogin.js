@@ -1,12 +1,16 @@
 import React from 'react'
-import { Form, Input, Button, Checkbox, message } from 'antd'
+import { Form, Input, Button, message } from 'antd'
 import { LoginUser } from '../../apis/UserApi'
+import { useDispatch } from 'react-redux'
+import { AddUserToState } from '../components/reducers/UserReducer'
 
 function UserLogin() {
+    const dispatch = useDispatch()
     const validateLogin = (userCreds) => {
-        let loginCreds = {username: userCreds.username, password: userCreds.password}
+        const loginCreds = {username: userCreds.username, password: userCreds.password}
         LoginUser(loginCreds).then((response) => {
-            console.log(response.data)
+            message.success('Hello, ' + response.data.username)
+            dispatch(AddUserToState(response.data))
         }).catch(() => {
             onFinishFailed();
         })
@@ -48,24 +52,13 @@ function UserLogin() {
                 <Input.Password />
             </Form.Item>
 
-            <Form.Item name="remember" valuePropName="checked"
-                wrapperCol={{
-                offset: 7,
-                span: 10,
-                }}
-            >
-                <Checkbox>Remember me</Checkbox>
-            </Form.Item>
-
             <Form.Item
                 wrapperCol={{
                 offset: 8,
-                span: 9,
+                span: 8,
                 }}
             >
-                <Button type="primary" htmlType="submit">
-                Submit
-                </Button>
+                <Button type="primary" htmlType="submit">Submit</Button>
             </Form.Item>
         </Form>
         </div>
