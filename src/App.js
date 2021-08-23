@@ -1,5 +1,4 @@
 import './features/chingqueue/styles/App.css';
-
 import Index from './features/chingqueue/components/Index';
 import 'antd/dist/antd.css';
 
