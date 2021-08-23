@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './features/chingqueue/styles/index.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'antd/dist/antd.css'
+
+
+
+
 
 ReactDOM.render(
   <React.StrictMode>
