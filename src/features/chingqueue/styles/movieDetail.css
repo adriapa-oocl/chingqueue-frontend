@@ -4,11 +4,48 @@
     height: fit-content;
 }
 
-.coverPhotDiv {
-    height: 450px;
+.trim {
+    max-height:450px;
+    overflow: hidden;
 }
 
-#box {
-    height: 500px;
-    overflow: auto;
+.movie-banner {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    max-height: 40%;
+    border-radius: 10px;
+    border: 5px solid #555;
+    border-color: white;
+}
+
+.row{
+    position: absolute;
+    left: 25%;
+    top: 10%;
+}
+
+.genre{
+    color: black;
+    margin-top: 16%;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.movieTitle{
+    padding-left: 20px;
+    color: white;
+    padding-right: 10px;
+}
+
+.boxTransparentTitle{
+    background-color: rgba(243, 239, 239, 0.596);
+    color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 400px;
+    align-content: right;
+    border-radius: 5px;
+    max-height: 250px;
 }
