@@ -32,24 +32,16 @@ const tailFormItemLayout = {
   },
 };
 
-function RegistrationForm() {
+function RegistrationForm(props) {
 
     const validateRegistration = (userCreds) =>{
        
         let registrationCreds = {full_name:userCreds.fullName, username: userCreds.username, password: userCreds.password, contact_num: userCreds.phone, address: userCreds.address  };
         addUser(registrationCreds).then((response)=>{
-
-        console.log(registrationCreds);
-        console.log(response.data);
-
-
+        props.onCloseRegisterModal()
         }).catch(()=>{
-
             onFinishFailed();
         })
-
-
-
     };
 
     const onFinishFailed = () =>{

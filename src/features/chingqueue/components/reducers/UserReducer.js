@@ -16,8 +16,11 @@ const userSlice = createSlice({
                 userName: action.payload.username,
             })
         },
+        RemoveUserFromState(state) {
+            userAdapter.removeAll(state)
+        }
     }
 });
 
-export const {AddUserToState} = userSlice.actions;
+export const {AddUserToState, RemoveUserFromState} = userSlice.actions;
 export default userSlice.reducer;
