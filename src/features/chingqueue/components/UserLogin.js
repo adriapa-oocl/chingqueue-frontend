@@ -12,6 +12,7 @@ function UserLogin(props) {
         LoginUser(loginCreds).then((response) => {
             message.success('Hello, ' + response.data.username)
             dispatch(AddUserToState(response.data))
+            props.currentUser(loginCreds.username)
             props.onCloseLoginModal()
         }).catch(() => {
             onFinishFailed();
