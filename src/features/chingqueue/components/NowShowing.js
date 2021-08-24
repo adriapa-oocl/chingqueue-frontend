@@ -2,16 +2,20 @@
 import { Row, Col, Divider } from 'antd';
 import { Link } from 'react-router-dom';
 import '../styles/nowShowing.css'
+import MovieDetail from './MovieDetail';
+
 
 function NowShowingCarousel(){
    
   
+   <MovieDetail />
     return(
       <div>
         
             <div>
             <Divider orientation="left"></Divider>
             <h2 className="nowShowing">Now Showing</h2>
+           
             
             <Row gutter={[20, 48]} align="center">
                 <Col className="gutter-row" span={4}>

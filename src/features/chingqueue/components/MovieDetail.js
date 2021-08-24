@@ -1,21 +1,48 @@
-import React from "react";
+import React, {useState} from "react";
 import Header from "./Header";
+import { useDispatch, useSelector} from 'react-redux'
+import { useEffect} from "react"
 import '../styles/movieDetail.css'
+import {getMovieDetails} from '../../apis/MovieDetailApi'
+import {addMovieDetails, selectByMovieId, selectMovieIds} from '../components/reducers/MovieDetailReducers'
+import {} from '../components/reducers/MovieDetailReducers'
+
+
+
 
 function MovieDetail(){
-    const contentStyle = {
-        height: '450px',
-        color: '#fff',
-        lineHeight: '160px',
-        textAlign: 'center',
-        background: '#364d79',
-    };
-      
+  
+    
+   const dispatch = useDispatch();
+         useEffect(() => {
+        getMovieDetails(21).then((response) => {
+            const responseData = response.data
+            // const movieDetailsMap = {id:responseData.movieDetailsId, 
+            //     movieId:responseData.movieId, 
+            //     movieDescription:responseData.movieDescription, 
+            //     movieGenre:responseData.movieGenre};
+
+            console.log(response.data)
+              dispatch(addMovieDetails(responseData))
+           
+        }
+    )
+
+    })
+    // const movieDescription1 = useSelector(selectMovieIds);
+    // const movieDescription = useSelector((state) => selectByMovieId(state, 1));
+    //  console.log(movieDescription);
+     
+
+ 
     return(
         <React.Fragment>
             <Header/>
             <div>
-                <h3 style={contentStyle}><img ant="movie 1" className="cover-photo" alt="Movie 1" src="https://i.imgur.com/zzELfqV.jpg%22/%3E"/></h3>
+                <img ant="movie 1" className="cover-photo" alt="Movie 1" src="https://i.imgur.com/zzELfqV.jpg%22/%3E"/>
+            </div>
+            <div>
+                 <p></p> 
             </div>
         </React.Fragment>
     )
