@@ -3,6 +3,7 @@ import Header from "./Header";
 import '../styles/movieDetail.css'
 import { Button, Divider } from "antd";
 import LeaveReview from "./LeaveReview";
+import Reviews from "./Reviews";
 
 function MovieDetail(){
     const contentStyle = {
@@ -23,7 +24,6 @@ function MovieDetail(){
                 <div className="row">
                     <div class="box boxTransparentTitle">
                         <h1 className="movieName">PARASITE</h1>
-                        <h3 className="ratings">Ratings: 5</h3>
                         <h3 className="genre">Genre: TEST</h3>
                     </div>
                     <LeaveReview/><br/><br/>
@@ -35,6 +35,7 @@ function MovieDetail(){
                 <p>The struggling Kim family sees an opportunity when the son starts working for the wealthy Park family. Soon, all of them find a way to work within the same household and start living a parasitic life.</p>
             </div>
             <Divider orientation="left"></Divider>
+            <Reviews/>
         </React.Fragment>
     )
 }
