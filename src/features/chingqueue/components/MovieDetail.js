@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import '../styles/movieDetail.css'
-import { Button } from "antd";
+import { Button, Divider } from "antd";
 import LeaveReview from "./LeaveReview";
 
 function MovieDetail(){
@@ -30,6 +30,11 @@ function MovieDetail(){
                     <Button type="primary" className = "button-ViewSchedule">View Schedules</Button>
                 </div>
             </div>
+            <div className="about-movie">
+                <h2>About the Movie</h2>
+                <p>The struggling Kim family sees an opportunity when the son starts working for the wealthy Park family. Soon, all of them find a way to work within the same household and start living a parasitic life.</p>
+            </div>
+            <Divider orientation="left"></Divider>
         </React.Fragment>
     )
 }
