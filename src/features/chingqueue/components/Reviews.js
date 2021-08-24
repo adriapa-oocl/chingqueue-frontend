@@ -8,6 +8,7 @@ function Reviews () {
     return (
         <React.Fragment>
             <div className="border">
+                <h2 className="review-title">Reviews</h2><br/><br/>
                 <Row gutter={[8, 8]} align="center">
                     <Col span={12}>
                         <div class = "container semiTransparent">

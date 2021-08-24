@@ -4,6 +4,7 @@ import '../styles/movieDetail.css'
 import { Button, Divider } from "antd";
 import LeaveReview from "./LeaveReview";
 import Reviews from "./Reviews";
+import { Link } from "react-router-dom";
 
 function MovieDetail(){
     const contentStyle = {
@@ -27,7 +28,7 @@ function MovieDetail(){
                         <h3 className="genre">Genre: TEST</h3>
                     </div>
                     <LeaveReview/><br/><br/>
-                    <Button type="primary" className = "button-ViewSchedule">View Schedules</Button>
+                    <Link to ="/MovieSchedule"><Button type="primary" className = "button-ViewSchedule">View Schedules</Button></Link>
                 </div>
             </div>
             <div className="about-movie">
