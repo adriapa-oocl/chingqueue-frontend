@@ -32,7 +32,7 @@ const tailFormItemLayout = {
   },
 };
 
-function RegistrationForm() {
+function RegistrationForm(props) {
 
     const validateRegistration = (userCreds) =>{
        
@@ -41,7 +41,7 @@ function RegistrationForm() {
 
         console.log(registrationCreds);
         console.log(response.data);
-
+        props.onCloseRegisterModal()
 
         }).catch(()=>{
 

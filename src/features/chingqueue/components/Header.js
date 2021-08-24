@@ -51,12 +51,10 @@ const Header = () => {
 
       <>
       <Modal title="Log-in to ChingQueue!" visible={isLogInModalVisible} onCancel={handleCancel} okButtonProps={{ style: { display: 'none' } }}>
-        
-        <UserLogin/>
-
+        <UserLogin onCloseLoginModal={setIsLogInModalVisible}/>
       </Modal>
       <Modal title="Register" visible={isSignupModalVisible} onCancel={handleCancel} okButtonProps={{ style: { display: 'none' } }}>
-        <RegistrationForm/>
+        <RegistrationForm onCloseRegisterModal={setIsSignupModalVisible}/>
       </Modal>
       </>
     </div>     

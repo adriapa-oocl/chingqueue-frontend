@@ -4,7 +4,7 @@ import { LoginUser } from '../../apis/UserApi'
 import { useDispatch } from 'react-redux'
 import { AddUserToState } from '../components/reducers/UserReducer'
 
-function UserLogin() {
+function UserLogin(props) {
 
     const dispatch = useDispatch()
     const validateLogin = (userCreds) => {
@@ -12,6 +12,7 @@ function UserLogin() {
         LoginUser(loginCreds).then((response) => {
             message.success('Hello, ' + response.data.username)
             dispatch(AddUserToState(response.data))
+            props.onCloseLoginModal()
         }).catch(() => {
             onFinishFailed();
         })
