@@ -1,0 +1,38 @@
+.semiTransparent {
+    background-color: rgba(243, 239, 239, 0.596);
+    border-radius: 5px;
+    border: 3px solid;
+    border-color: rgb(128, 128, 128);
+    max-height: 200px;
+    margin: 5px;
+    height: 200px;
+    overflow: auto;
+}
+
+.avatar{
+    float: left;
+    margin: 10px;
+}
+
+.border {
+    width: 50%;
+    margin-left: 25%;
+}
+
+.reviewUsername {
+    float: left;
+    color: black;
+    margin-top: 3%;
+}
+
+.review-content {
+    position: relative;
+    left: 10%;
+    margin-top: 15%;
+    margin-right: 10%;
+    text-align: left;
+}
+
+.review-title{
+    float: left;
+}

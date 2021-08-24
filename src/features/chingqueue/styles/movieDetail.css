@@ -1,0 +1,65 @@
+.cover-photo{
+    margin: auto;
+    width: 100%;
+    height: fit-content;
+}
+
+.trim {
+    max-height:450px;
+    overflow: hidden;
+}
+
+.movie-banner {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    max-height: 40%;
+    border-radius: 10px;
+    border: 5px solid #555;
+    border-color: white;
+}
+
+.row{
+    position: absolute;
+    left: 25%;
+    top: 10%;
+}
+
+.button-ViewSchedule {
+    float: left;
+    margin-top: 10px;
+}
+
+.genre{
+    color: black;
+    margin-top: 5%;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.movieName{
+    padding-left: 20px;
+    color: white;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.boxTransparentTitle{
+    background-color: rgba(243, 239, 239, 0.596);
+    color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 400px;
+    align-content: right;
+    border-radius: 5px;
+    max-height: 250px;
+}
+
+.about-movie {
+    max-width: 70%;
+    margin-left: 15%;
+    text-align: left;
+    margin-top: 1%;
+}

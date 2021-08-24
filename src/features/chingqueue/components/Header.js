@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Settings from './Settings';
 import UserLogin from './UserLogin';
 import RegistrationForm from './RegistrationForm';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { RemoveUserFromState } from '../components/reducers/UserReducer';
 
@@ -36,14 +37,16 @@ const Header = () => {
     dispatch(RemoveUserFromState())
     setUser('guest')
   };
-  
+
   return( 
     
     <React.Fragment>
     <Header >
       
-        <div className="location">
-        <img  className="responsive " alt="ChingQueue" src="https://i.imgur.com/bP82k1G.png" />
+      <div className="location">
+        <Link to = "/">
+          <img  className="responsive " alt="ChingQueue" src="https://i.imgur.com/bP82k1G.png" />
+        </Link>
         <Search className="search" placeholder="input search text" onSearch={onSearch} enterButton />
         
         <span className="username">

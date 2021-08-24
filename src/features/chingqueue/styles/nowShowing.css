@@ -1,22 +1,21 @@
 .nowShowingMovie {
    
-        margin: auto;
-        width: 100%;
-        height: 300px;
-        border-radius:10px;
-    
+    margin: auto;
+    width: 100%;
+    height: 300px;
+    border-radius:10px;
 }
-.nowShowing {
 
+.nowShowing {
     margin-bottom: 40px;
 }
+
 .movieTitle {
-    
     position: relative;
     float: left;
-    
-    
+    color: #000;
 }
+
 #genre {
     margin-bottom: 30px;
 }
