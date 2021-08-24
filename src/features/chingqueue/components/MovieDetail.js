@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "./Header";
 import '../styles/movieDetail.css'
-import { Col, Row } from "antd";
+import { Button } from "antd";
+import LeaveReview from "./LeaveReview";
 
 function MovieDetail(){
     const contentStyle = {
@@ -21,9 +22,12 @@ function MovieDetail(){
                 
                 <div className="row">
                     <div class="box boxTransparentTitle">
-                        <h1 className="movieTitle">PARASITE</h1>
-                        <h3 className="genre">Genre : The struggling Kim family sees an opportunity when the son starts working for the wealthy Park family. Soon, all of them find a way to work within the same household and start living a parasitic life.</h3>
+                        <h1 className="movieName">PARASITE</h1>
+                        <h3 className="ratings">Ratings: 5</h3>
+                        <h3 className="genre">Genre: TEST</h3>
                     </div>
+                    <LeaveReview/><br/><br/>
+                    <Button type="primary" className = "button-ViewSchedule">View Schedules</Button>
                 </div>
             </div>
         </React.Fragment>
