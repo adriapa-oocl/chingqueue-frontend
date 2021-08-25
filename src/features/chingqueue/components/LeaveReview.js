@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
-import { Modal, Button } from 'antd';
+import { Modal, Button, message } from 'antd';
 import '../styles/leaveReview.css';
 import MovieReviews from './MovieReviews'
+import { useSelector } from 'react-redux'
+import { selectAllUser } from '../components/reducers/UserReducer'
 
 function LeaveReview() {
+    const userFromState = useSelector(selectAllUser)  
     const [isModalVisible, setIsModalVisible] = useState(false);
 
-    const showModal = () => {
-        setIsModalVisible(true);
-    };
+    function showModal () {
+        if (userFromState.length === 0) {
+            message.error('You must log-in first before being able to review!');
+        } else {
+            setIsModalVisible(true);
+        }
+    }
 
     const handleOk = () => {
         setIsModalVisible(false);
