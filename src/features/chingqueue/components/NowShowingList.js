@@ -8,10 +8,12 @@ import { AddMovieToState, selectAllMovies } from './reducers/MovieReducer'
 import NowShowing from './NowShowing'
 import { useEffect } from 'react';
 
+
 function NowShowingList(){
     const dispatch = useDispatch()
 
     function MapDetailsToMovie(movie) {
+        console.log(movie)
         getMovieDetails(movie.movie_id).then((response) => {
             let movieDetail = response.data
                 const movieToMap = 
@@ -23,7 +25,6 @@ function NowShowingList(){
                         movie_details_id: movieDetail.movieDetailsId,
                         movie_description: movieDetail.movieDescription
                     }
-        
             dispatch(AddMovieToState(movieToMap))
         })
     }
