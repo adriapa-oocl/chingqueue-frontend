@@ -15,8 +15,8 @@
 }
 
 .border {
-    width: 50%;
-    margin-left: 25%;
+    width: 75%;
+    margin-left: 12.5%;
 }
 
 .reviewUsername {
@@ -28,7 +28,7 @@
 .review-content {
     position: relative;
     left: 10%;
-    margin-top: 15%;
+    margin-top: 10%;
     margin-right: 10%;
     text-align: left;
 }

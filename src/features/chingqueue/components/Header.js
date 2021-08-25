@@ -56,7 +56,6 @@ const Header = () => {
         <Link to = "/">
           <img  className="responsive " alt="ChingQueue" src="https://i.imgur.com/bP82k1G.png" />
         </Link>
-        <Search className="search" placeholder="input search text" onSearch={onSearch} enterButton />
         
         <span className="username">
         Welcome, {user}!
@@ -66,7 +65,6 @@ const Header = () => {
         <Button type="primary" className="SignIn" onClick={showSignupModal}>
         Sign Up 
         </Button>  
-        <Settings className="Settings"/>
         </span>
 
       <>

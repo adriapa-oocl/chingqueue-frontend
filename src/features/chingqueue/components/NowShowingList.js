@@ -1,5 +1,5 @@
 
-import { Divider } from 'antd';
+import { Divider, Row } from 'antd';
 import '../styles/nowShowing.css'
 import { getAllMovies } from '../../apis/MovieApi'
 import { getMovieDetails } from '../../apis/MovieDetailApi'
@@ -44,11 +44,15 @@ function NowShowingList(){
             <div>
             <Divider orientation="left"></Divider>
                 <h2 className="nowShowing">Now Showing</h2>
-                {
-                    movies.map((movie) => (
-                        <NowShowing key={movie.id} movie={movie}/>
-                    ))   
-                }
+                <div className= "movie-list">
+                    <Row gutter={[20, 10]} align="center">
+                    {
+                        movies.map((movie) => (
+                            <NowShowing key={movie.id} movie={movie}/>
+                        ))   
+                    }
+                    </Row>
+                </div>
             </div>
       </div>
     );
