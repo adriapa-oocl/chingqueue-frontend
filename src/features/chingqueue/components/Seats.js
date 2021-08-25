@@ -22,36 +22,36 @@ function SeatsDisplay(){
     </PageHeader>
   </div>
   <hr/>
-  
-  <div class="movie-container">
+
+  <div className="movie-container">
     </div>
 
     
-    <div class="container">
-      <div class="screen"><span className="spanScreen">Screen</span></div>
-      <div class="row">
-        <div class="seat occupied"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat occupied"></div>
-        <div class="seat selected"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+    <div className="seatscontainer">
+      <div className="screen"><span className="spanScreen">Screen</span></div>
+      <div className="seatrow">
+        <div className="seat occupied"></div>
+        <div className="seat selected"></div>
+        <div className="seat"></div>
+        <div className="seat occupied"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
+        <div className="seat"></div>
       </div>
     </div>
   
-    <ul class="showcase">
+    <ul className="showcase">
       <li>
-        <div class="seat"></div>
+        <div className="seat"></div>
         <small>Available</small>
       </li>
       <li>
-        <div class="seat selected"></div>
+        <div className="seat selected"></div>
         <small>Selected</small>
       </li>
       <li>
-        <div class="seat occupied"></div>
+        <div className="seat occupied"></div>
         <small>Occupied</small>
       </li>
     </ul>
