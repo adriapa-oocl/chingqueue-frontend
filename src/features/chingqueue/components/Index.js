@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './Header'
 import MovieCarousel from './MovieCarousel'
 import {Layout } from 'antd';
-import NowShowingCarousel from './NowShowing';
+import NowShowingList from './NowShowingList';
 
 
 function Index() {
@@ -11,10 +11,9 @@ function Index() {
             <Layout className="layout">
             <Header/>
             <MovieCarousel/>
-            <NowShowingCarousel/>
+            <NowShowingList/>
             </Layout>
         </React.Fragment>
-   
     )
 }
 
