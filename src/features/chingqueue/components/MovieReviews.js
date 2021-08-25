@@ -14,10 +14,9 @@ const layout = {
 function MovieReviews(props) {
   const validateReview = (reviewDetails) =>{
     let reviewCreds = {movie_details_id: props.movieDetailsId, user_id: props.userId[0].id, review_content: reviewDetails.reviewContent};
-    console.log(reviewCreds)
     
     addMovieReview(reviewCreds).then((response)=>{
-    console.log(response.data);
+      props.isReviewModalVisible()
     }).catch(()=>{
       onFinish();
     })

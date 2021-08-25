@@ -17,9 +17,6 @@ function LeaveReview(props) {
         }
     }
 
-    const handleOk = () => {
-        setIsModalVisible(false);
-    };
 
     const handleCancel = () => {
         setIsModalVisible(false);
@@ -30,8 +27,8 @@ function LeaveReview(props) {
         <Button type="primary" className = "button-LeaveReview" onClick={showModal}>
             Leave a review
         </Button>
-        <Modal title="Leave a review" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-            <MovieReviews movieDetailsId={props.movieDetailsId} userId={userFromState}/>
+        <Modal title="Leave a review" visible={isModalVisible} onCancel={handleCancel} okButtonProps={{ style: { display: 'none' } }}>
+            <MovieReviews movieDetailsId={props.movieDetailsId} userId={userFromState} isReviewModalVisible={setIsModalVisible}/>
         </Modal>
         </>
     );
