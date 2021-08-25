@@ -6,8 +6,8 @@ import '../styles/nowShowing.css'
 function NowShowing(props){
     return(
       <div>
-        <Row gutter={[20, 48]} align="center">
-            <Col className="gutter-row" span={4}>
+        <Row gutter={[20, 10]} align="center">
+            <Col className="gutter-row" span={3}>
                 <Link to = "/MovieDetails">
                     <img ant={props.key} className="nowShowingMovie" alt="movie" src={props.movie.movie_img}/>
                 </Link>
