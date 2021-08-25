@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import store from './features/store/store'
 import 'antd/dist/antd.css';
 
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

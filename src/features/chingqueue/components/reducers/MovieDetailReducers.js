@@ -11,7 +11,7 @@ const movieDetailSlice = createSlice({
     initialState,
     reducers: {
        addMovieDetails(state, action) {
-           console.log('action payload',action.payload)
+           console.log('action payload', action.payload)
             movieDetailAdapter.addOne(state, action.payload)
         },
     }
