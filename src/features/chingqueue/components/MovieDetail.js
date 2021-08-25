@@ -54,7 +54,7 @@ function MovieDetail(){
                         <h1 className="movieName">{state.movie.movie_name}</h1>
                         <h3 className="genre">Genre: {state.movie.genre}</h3>
                     </div>
-                    <LeaveReview/><br/><br/>
+                    <LeaveReview movieDetailsId={state.movie.movie_details_id}/><br/><br/>
                     <Link to ="/MovieSchedule"><Button type="primary" className = "button-ViewSchedule">View Schedules</Button></Link>
                 </div>
             </div>

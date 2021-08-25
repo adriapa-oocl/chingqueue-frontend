@@ -5,7 +5,7 @@ import MovieReviews from './MovieReviews'
 import { useSelector } from 'react-redux'
 import { selectAllUser } from '../components/reducers/UserReducer'
 
-function LeaveReview() {
+function LeaveReview(props) {
     const userFromState = useSelector(selectAllUser)  
     const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -31,7 +31,7 @@ function LeaveReview() {
             Leave a review
         </Button>
         <Modal title="Leave a review" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-            <MovieReviews/>
+            <MovieReviews movieDetailsId={props.movieDetailsId} userId={userFromState}/>
         </Modal>
         </>
     );
