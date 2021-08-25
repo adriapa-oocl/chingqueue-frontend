@@ -6,6 +6,7 @@ import { useSelector, useDispatch} from 'react-redux';
 import { AddAllMoviesToState, selectAllMovies } from './reducers/MovieReducer'
 import NowShowing from './NowShowing'
 
+
 function NowShowingList(){
     const dispatch = useDispatch()
     getAllMovies().then((response) => {
