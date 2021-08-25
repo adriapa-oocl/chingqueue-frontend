@@ -1,7 +1,6 @@
-import {Layout, Input, Modal, Button } from 'antd';
+import {Layout, Modal, Button } from 'antd';
 import '../styles/header.css'
 import React, { useEffect, useState } from 'react';
-import Settings from './Settings';
 import UserLogin from './UserLogin';
 import RegistrationForm from './RegistrationForm';
 import { Link } from 'react-router-dom';
@@ -13,8 +12,6 @@ const Header = () => {
   const userFromState = useSelector(selectAllUser)  
   const dispatch = useDispatch()
   const { Header } = Layout;
-  const { Search } = Input;
-  const onSearch = value => console.log(value);
 
   const [user,setUser] = useState('guest')
 
@@ -76,7 +73,7 @@ const Header = () => {
       </Modal>
       </>
     </div>     
-     
+
     </Header>
     
     </React.Fragment>

@@ -1,5 +1,5 @@
 
-import { createSlice,createEntityAdapter, createSelector} from "@reduxjs/toolkit";
+import { createSlice,createEntityAdapter} from "@reduxjs/toolkit";
 
 const cinemaAdapter = createEntityAdapter();
 const initialState = cinemaAdapter.getInitialState({

@@ -1,4 +1,4 @@
-import { List, Divider, Typography, Button } from "antd";
+import { List, Typography, Button } from "antd";
 import React from "react";
 import '../styles/availableCinema.css';
 
