@@ -8,3 +8,7 @@ export const addUser = (userCreds) =>{
 
     return api.post("/users/register",userCreds)
 }
+
+export const getUsers = () => {
+    return api.get('/users')
+}
