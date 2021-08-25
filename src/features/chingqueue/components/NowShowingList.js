@@ -6,6 +6,7 @@ import { getMovieDetails } from '../../apis/MovieDetailApi'
 import { useSelector, useDispatch} from 'react-redux';
 import { AddMovieToState, selectAllMovies } from './reducers/MovieReducer'
 import NowShowing from './NowShowing'
+import { useEffect } from 'react';
 
 function NowShowingList(){
     const dispatch = useDispatch()
@@ -27,11 +28,14 @@ function NowShowingList(){
         })
     }
 
-    getAllMovies().then((response) => {
-        response.data.forEach(function(movie) {
-            MapDetailsToMovie(movie)
+    useEffect(() => {
+        getAllMovies().then((response) => {
+            response.data.forEach(function(movie) {
+                MapDetailsToMovie(movie)
+            })
         })
     })
+
 
     const movies = useSelector(selectAllMovies)
 

@@ -9,7 +9,7 @@ function NowShowing(props){
         <Row gutter={[20, 10]} align="center">
             <Col className="gutter-row" span={3}>
                 <Link to={{pathname: "/MovieDetails", state: {movie: props.movie}}}>
-                    <img ant={props.key} className="nowShowingMovie" alt="movie" src={props.movie.movie_img}/>
+                    <img ant={props.movie.id} className="nowShowingMovie" alt="movie" src={props.movie.movie_img}/>
                 </Link>
                 <Row>
                     <Col>
