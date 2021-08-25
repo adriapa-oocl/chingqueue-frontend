@@ -8,13 +8,10 @@
 .responsive {
     width: 150px;
     height: 30px;
-    margin-right: 20px;
-   
-    
+    margin-right: 70%;
   }
   .location {
-    padding-right: 200px;
-    
+    margin-left: 10px;
   }
 
   .username{

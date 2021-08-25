@@ -23,4 +23,6 @@ const userSlice = createSlice({
 });
 
 export const {AddUserToState, RemoveUserFromState} = userSlice.actions;
+export const {selectAll: selectAllUser} = userAdapter.getSelectors((state) => state.currentUser);
 export default userSlice.reducer;
+

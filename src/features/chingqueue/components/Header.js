@@ -1,21 +1,32 @@
 import {Layout, Input, Modal, Button } from 'antd';
 import '../styles/header.css'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Settings from './Settings';
 import UserLogin from './UserLogin';
 import RegistrationForm from './RegistrationForm';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { RemoveUserFromState } from '../components/reducers/UserReducer';
+import { selectAllUser } from '../components/reducers/UserReducer'
 
 const Header = () => {
-  
+  const userFromState = useSelector(selectAllUser)  
   const dispatch = useDispatch()
   const { Header } = Layout;
   const { Search } = Input;
   const onSearch = value => console.log(value);
 
   const [user,setUser] = useState('guest')
+
+  useEffect(() => {
+    if (userFromState.length === 0) {
+      setUser('guest')
+    } else {
+      setUser(userFromState[0].userName)
+    }
+  }, [userFromState])
+  
+  
 
   const [isLogInModalVisible, setIsLogInModalVisible] = useState(false);
   const [isSignupModalVisible, setIsSignupModalVisible] = useState(false);
@@ -39,15 +50,12 @@ const Header = () => {
   };
 
   return( 
-    
     <React.Fragment>
     <Header >
-      
       <div className="location">
         <Link to = "/">
           <img  className="responsive " alt="ChingQueue" src="https://i.imgur.com/bP82k1G.png" />
         </Link>
-        <Search className="search" placeholder="input search text" onSearch={onSearch} enterButton />
         
         <span className="username">
         Welcome, {user}!
@@ -57,7 +65,6 @@ const Header = () => {
         <Button type="primary" className="SignIn" onClick={showSignupModal}>
         Sign Up 
         </Button>  
-        <Settings className="Settings"/>
         </span>
 
       <>
