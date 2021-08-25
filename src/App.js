@@ -5,6 +5,7 @@ import 'antd/dist/antd.css';
 import MovieDetail from './features/chingqueue/components/MovieDetail';
 import MovieSchedule from './features/chingqueue/components/MovieSchedule';
 import UserLogin from './features/chingqueue/components/UserLogin';
+import ShowSeats from './features/chingqueue/components/ShowSeats';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
            <Route exact path="/login" component={UserLogin}/>
            <Route exact path="/MovieDetails" component={MovieDetail}></Route>
            <Route exact path="/MovieSchedule" component={MovieSchedule}></Route>
+           <Route exact path="/ShowSeats" component={ShowSeats}></Route>
         </Switch>
       </BrowserRouter>
     </div>

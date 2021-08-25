@@ -1,5 +1,4 @@
 import React from "react";
-import {useState} from "react";
 import Header from "./Header";
 import '../styles/movieSchedule.css';
 import { Divider } from "antd";
