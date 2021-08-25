@@ -2,24 +2,35 @@
 import { Divider } from 'antd';
 import '../styles/nowShowing.css'
 import { getAllMovies } from '../../apis/MovieApi'
+import { getMovieDetails } from '../../apis/MovieDetailApi'
 import { useSelector, useDispatch} from 'react-redux';
-import { AddAllMoviesToState, selectAllMovies } from './reducers/MovieReducer'
+import { AddMovieToState, selectAllMovies } from './reducers/MovieReducer'
 import NowShowing from './NowShowing'
 
 function NowShowingList(){
     const dispatch = useDispatch()
+
+    function MapDetailsToMovie(movie) {
+        getMovieDetails(movie.movie_id).then((response) => {
+            let movieDetail = response.data
+                const movieToMap = 
+                    {
+                        id: movie.movie_id, 
+                        movie_name: movie.movie_name,
+                        movie_img: movie.movie_img,
+                        genre: movieDetail.movieGenre,
+                        movie_details_id: movieDetail.movieDetailsId,
+                        movie_description: movieDetail.movieDescription
+                    }
+        
+            dispatch(AddMovieToState(movieToMap))
+        })
+    }
+
     getAllMovies().then((response) => {
-        const movieList = response.data.map((movie) => 
-            (
-                {
-                    id: movie.movie_id, 
-                    movie_name: movie.movie_name,
-                    movie_img: movie.movie_img,
-                    genre: movie.genre
-                }
-            )
-        )
-        dispatch(AddAllMoviesToState(movieList))
+        response.data.forEach(function(movie) {
+            MapDetailsToMovie(movie)
+        })
     })
 
     const movies = useSelector(selectAllMovies)

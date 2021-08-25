@@ -10,12 +10,12 @@ const movieSlice = createSlice({
     name: "movie",
     initialState,
     reducers: {
-        AddAllMoviesToState(state, action) {
-            movieAdapter.addMany(state, action.payload)
+        AddMovieToState(state, action) {
+            movieAdapter.addOne(state, action.payload)
         },
     }
 });
 
-export const {AddAllMoviesToState} = movieSlice.actions;
+export const {AddMovieToState} = movieSlice.actions;
 export const {selectAll: selectAllMovies} = movieAdapter.getSelectors((state) => state.movieList);
 export default movieSlice.reducer;

@@ -19,7 +19,7 @@ function NowShowing(props){
 
                 <Row>
                     <Col>
-                    <h4 id="genre">Genre</h4>
+                    <h4 id="genre">{props.movie.genre}</h4>
                     </Col>
                 </Row>
             </Col>
