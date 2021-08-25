@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'antd';
 import '../styles/leaveReview.css';
+import MovieReviews from './MovieReviews'
 
 function LeaveReview() {
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -22,10 +23,8 @@ function LeaveReview() {
         <Button type="primary" className = "button-LeaveReview" onClick={showModal}>
             Leave a review
         </Button>
-        <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
+        <Modal title="Leave a review" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+            <MovieReviews/>
         </Modal>
         </>
     );
