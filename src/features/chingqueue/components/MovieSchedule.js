@@ -22,7 +22,7 @@ function MovieSchedule(props) {
             cinema_company: cinema.cinemaCompany,
             cinema_location: cinema.cinemaLocation,
             movie_id: cinema.movieId,
-            cinema_timeslot_list: [cinema.cinemaTimeslotList]
+            cinema_timeslot_list: cinema.cinemaTimeslotList
         })
     )
     dispatch(AddCinemas(cinemas));
