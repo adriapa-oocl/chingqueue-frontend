@@ -3,7 +3,7 @@ import Header from "./Header";
 import '../styles/movieDetail.css'
 import { Button, Divider } from "antd";
 import LeaveReview from "./LeaveReview";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { getMovieReviews } from "../../apis/MovieReviewApi";
 import { useDispatch, useSelector } from "react-redux";
 import { AddAllMovieReviewsToState, selectAllMovieReviews } from "./reducers/MovieReviewsReducer";
@@ -51,7 +51,6 @@ function MovieDetail(){
           });
         }
 
-  
     return(
         <React.Fragment>
             <Header/>
@@ -66,8 +65,6 @@ function MovieDetail(){
                     </div>
                     <LeaveReview movieDetailsId={state.movie.movie_details_id}/><br/><br/>
                     
-                    {/* <Link to ="/MovieSchedule" ><Button type="primary" className = "button-ViewSchedule">View Schedules</Button></Link> */}
-
                     <Button type="primary" className = "button-ViewSchedule" onClick={goToSchedule}>View Schedules</Button>
                 </div>
             </div>
