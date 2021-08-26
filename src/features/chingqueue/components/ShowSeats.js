@@ -17,8 +17,9 @@ function ShowSeats(props) {
           title: 'QR Code payment',
           content: (
             <div>
-              {<img id='barcode' src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100" alt="" title="HELLO" width="250" height="250" /> }
-            
+              {<img id='barcode' src="https://i.imgur.com/x8O8vZG.png" alt="" title="Gcash ni JC" width="270" height="300" /> }
+              <br/>
+              <span>For further concerns, contact us @ 09151924816</span>
             </div>
           ),
       
@@ -30,7 +31,6 @@ function ShowSeats(props) {
         success();
       }
 
-    
     getAllCinemaSeatsByCinemaId(props.cinemaId).then((response) => {
         let cinemaSeats = response.data.map((cinemaSeats) => 
         ({
@@ -47,20 +47,6 @@ function ShowSeats(props) {
     let mySeat = currSeat ? "selected" : "";
     let ticketPrice = 240;
     let bookFee = 50;
-    // let total = 0;
-    let selectedSeat = 0;
-
-
-    // if (payment) {
-    //     selectedSeat = selectedSeat + 1;
-   
-    //     setTotal(total+290)
-      
-    //     console.log("hi")
-    // }
-    
-  
-    
     const seats = useSelector(selectAllCinemaSeatIds)
     console.log(seats)
     return (
@@ -80,12 +66,31 @@ function ShowSeats(props) {
                 )
                 )}
             </Row>
+            
+          <div className="showcaseSpace">
+          <center><div className="screen"><span className="spanScreen">Screen</span></div></center>
+            <ul className="showcase">
+      <li>
+        <div className="seat"></div>
+        <small>Available</small>
+      </li>
+      <li>
+        <div className="seat ant-popover-open"></div>
+        <small>Selected</small>
+      </li>
+      <li>
+        <div className="seat occupied"></div>
+        <small>Occupied</small>
+      </li>
+    </ul>
+    </div>
             <Row className="paid"><span className="paidFont">Booking Summary: </span></Row>
             <Row><span className="paidFont">Reservation Fee: {bookFee}</span></Row>
             <Row><span className="paidFont">Total Amount: {total}</span></Row>
-            <Row><span className="paidFont" onClick={handleLink}>Proceed to payment </span></Row>
-
            
+            
+
+            <center><div className="paymentFont" onClick={handleLink}>Proceed to payment </div></center>
         </div>
     )
 }
