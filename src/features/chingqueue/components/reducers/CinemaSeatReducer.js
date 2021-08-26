@@ -17,7 +17,7 @@ const cinemaSeatSlice = createSlice({
         UpdateCinemaSeat(state, action) {
             cinemaSeatAdapter.updateOne(state, {
                 id: action.payload.id,
-                changes: action.payload
+                changes: action.payload.updateSeat
             })
         },
     }

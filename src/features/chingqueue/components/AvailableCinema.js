@@ -1,24 +1,30 @@
-import { List, Typography, Button, Modal } from "antd";
+import { List, Typography, Button, Modal, message } from "antd";
 import React from "react";
 import {useState} from "react";
 import '../styles/availableCinema.css';
 import ShowSeats from "./ShowSeats";
+import { useSelector } from 'react-redux'
+import { selectAllUser } from '../components/reducers/UserReducer'
 
 function AvailableCinema(props){
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const userFromState = useSelector(selectAllUser)  
     const handleCancel = () => {
         setIsModalVisible(false);
       };
 
       const showModal = () => {
-        setIsModalVisible(true);
+        if (userFromState.length === 0) {
+            message.error('You must log-in first before being able to review!');
+        } else {
+            setIsModalVisible(true);
+        }
       };
     const data = [
-        <span className="list-button">         
-        {
+        <span className="list-button"onClick={showModal}>         
+        { 
             props.cinema.cinema_timeslot_list.map((timeslot)=>(
-                // <Link to={{pathname: "/ShowSeats", state: {cinemaId: props.cinema.id}}}><Button className="button-time-slot">{timeslot}</Button></Link>
-                <Button className="button-time-slot" onClick={showModal}>{timeslot}</Button>
+                <Button className="button-time-slot" >{timeslot}</Button>
             ))
         }
         </span>
@@ -27,7 +33,7 @@ function AvailableCinema(props){
     return(
         <React.Fragment>
             <div className="available-cinema">
-           {/* { <Divider orientation="left"> Available Cinemas </Divider>} */}
+           {  console.log(props.cinema.cinema_timeslot_list)}
             <List
                 bordered
                  dataSource={data}
