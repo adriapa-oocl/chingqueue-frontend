@@ -14,11 +14,11 @@ function AvailableCinema(props){
         setIsModalVisible(true);
       };
     const data = [
-        <span className="list-button">         
-        {
+        <span className="list-button"onClick={showModal}>         
+        { 
             props.cinema.cinema_timeslot_list.map((timeslot)=>(
                 // <Link to={{pathname: "/ShowSeats", state: {cinemaId: props.cinema.id}}}><Button className="button-time-slot">{timeslot}</Button></Link>
-                <Button className="button-time-slot" onClick={showModal}>{timeslot}</Button>
+                <Button className="button-time-slot" >{timeslot}</Button>
             ))
         }
         </span>
@@ -28,6 +28,7 @@ function AvailableCinema(props){
         <React.Fragment>
             <div className="available-cinema">
            {/* { <Divider orientation="left"> Available Cinemas </Divider>} */}
+           {  console.log(props.cinema.cinema_timeslot_list)}
             <List
                 bordered
                  dataSource={data}

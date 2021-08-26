@@ -9,7 +9,27 @@ import "./../styles/CinemaSeats.css"
 function ShowSeats(props) {
     const dispatch = useDispatch()
     const [currSeat, setSeat] = useState(false);
-    const text = "Are you sure you want this seat?";
+
+    function success() {
+        Modal.success({
+          title: 'QR Code payment',
+          content: (
+            <div>
+              {<img id='barcode' src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100" alt="" title="HELLO" width="250" height="250" /> }
+            
+            </div>
+          ),
+          onOk() {
+            message.info('You have successfully reserved this seat');
+          },
+        });
+      }
+
+      function handleLink() {
+        
+        success();
+      }
+
     
     getAllCinemaSeatsByCinemaId(props.cinemaId).then((response) => {
         let cinemaSeats = response.data.map((cinemaSeats) => 
@@ -34,25 +54,8 @@ function ShowSeats(props) {
         total = ticketPrice + total + bookFee;
     }
     
-    function confirm() {
-        
-        success();
-      }
-
-      function success() {
-        Modal.success({
-          title: 'QR Code payment',
-          content: (
-            <div>
-              <img id='barcode' src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100" alt="" title="HELLO" width="250" height="250" />
-            </div>
-          ),
-          onOk() {
-            message.info('You have successfully reserved this seat');
-          },
-        });
-      }
-      
+   
+    
     const seats = useSelector(selectAllCinemaSeatIds)
     console.log(seats)
     return (
@@ -64,14 +67,19 @@ function ShowSeats(props) {
             {
                 seats.map((id) => 
                 (
-                <Popconfirm placement="top" onConfirm={confirm} title={text}> <Col> <div className={`seat ${mySeat}`} onClick={() => setSeat('selected')}><Seat key={id} seatId={id}/> </div></Col> </Popconfirm>
+                <Col> 
+                {/* <div className={`seat ${mySeat}`} onClick={() => setSeat('selected')}> */}
+                    <Seat key={id} seatId={id}/> 
+                    {/* </div> */}
+                    </Col>
                 )
                 )}
             </Row>
             <Row className="paid"><span className="paidFont">Booking Summary: </span></Row>
-            <Row className="paid"><span className="paidFont">Selected Seats: {selectedSeat}</span> </Row>
             <Row><span className="paidFont">Reservation Fee: {bookFee}</span></Row>
             <Row><span className="paidFont">Total Amount: {total}</span></Row>
+            <Row><span className="paidFont" onClick={handleLink}>Proceed to payment </span></Row>
+
            
         </div>
     )
