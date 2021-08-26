@@ -21,6 +21,7 @@ function LeaveReview(props) {
     const handleCancel = () => {
         setIsModalVisible(false);
     };
+    console.log(props);
 
     return (
         <>

@@ -8,11 +8,14 @@ import {AddCinemas} from './reducers/CinemaReducer';
 import {useDispatch, useSelector} from "react-redux";
 import {getCinemasByMovieId} from '../../apis/CinemasApi'
 import { selectAllCinemas } from '../components/reducers/CinemaReducer'
+import { useLocation } from "react-router-dom";
+
+
 
 function MovieSchedule(props) {
-    
+ let location = useLocation();
  const dispatch = useDispatch();
-
+ const cinemas = useSelector(selectAllCinemas);
  getCinemasByMovieId(1).then((response) =>{
     let cinemas = response.data.map((cinema) => 
         ({
@@ -25,14 +28,18 @@ function MovieSchedule(props) {
     )
     dispatch(AddCinemas(cinemas));
 })
-const cinemas = useSelector(selectAllCinemas)
+
+
+console.log('location:', location)
+
+
 
     return (
         <React.Fragment>
             <Header/>
             <div className="schedule-upper-page">
-                <h1>Parasite</h1>
-                <h4>Thriller</h4>
+                <p>{location.state.movie.movie_name}</p>
+                <p>{location.state.movie.genre}</p>
             </div>
             <Divider orientation="left"></Divider>
             <MovieScheduleDatePicker/>

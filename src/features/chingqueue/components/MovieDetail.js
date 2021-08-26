@@ -9,10 +9,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { AddAllMovieReviewsToState, selectAllMovieReviews } from "./reducers/MovieReviewsReducer";
 import ReviewList from "./ReviewList";
 import { getUsers } from '../../apis/UserApi'
+import { useHistory } from "react-router-dom";
 
 function MovieDetail(){
+    let history = useHistory();
     const dispatch = useDispatch()
     const { state } = useLocation();
+    var reviews = useSelector(selectAllMovieReviews)
     const contentStyle = {
         height: '450px',
         color: '#fff',
@@ -20,6 +23,8 @@ function MovieDetail(){
         textAlign: 'center',
         background: '#364d79',
     };
+   
+    reviews = reviews.filter((review) => review.movie_details_id === state.movie.movie_details_id)
 
     getMovieReviews().then((movieReviews) => { 
         getUsers().then((users) => {
@@ -38,10 +43,15 @@ function MovieDetail(){
             dispatch(AddAllMovieReviewsToState(reviewMap))
         })
     })
+   
+    const goToSchedule =() => {
+        history.push({
+            pathname: `/MovieSchedule`,
+            state: { movie: state.movie }
+          });
+        }
 
-    var reviews = useSelector(selectAllMovieReviews)
-    reviews = reviews.filter((review) => review.movie_details_id === state.movie.movie_details_id)
-
+  
     return(
         <React.Fragment>
             <Header/>
@@ -55,7 +65,10 @@ function MovieDetail(){
                         <h3 className="genre">Genre: {state.movie.genre}</h3>
                     </div>
                     <LeaveReview movieDetailsId={state.movie.movie_details_id}/><br/><br/>
-                    <Link to ="/MovieSchedule"><Button type="primary" className = "button-ViewSchedule">View Schedules</Button></Link>
+                    
+                    {/* <Link to ="/MovieSchedule" ><Button type="primary" className = "button-ViewSchedule">View Schedules</Button></Link> */}
+
+                    <Button type="primary" className = "button-ViewSchedule" onClick={goToSchedule}>View Schedules</Button>
                 </div>
             </div>
             <div className="about-movie">
