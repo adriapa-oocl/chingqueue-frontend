@@ -2,18 +2,20 @@ import React from "react";
 import Header from "./Header";
 import '../styles/movieSchedule.css';
 import { Divider } from "antd";
-import MovieScheduleDatePicker from "./MovieScheduleDatePicker";
 import AvailableCinema from "./AvailableCinema";
 import {AddCinemas} from './reducers/CinemaReducer';
 import {useDispatch, useSelector} from "react-redux";
 import {getCinemasByMovieId} from '../../apis/CinemasApi'
 import { selectAllCinemas } from '../components/reducers/CinemaReducer'
+import { useLocation } from "react-router-dom";
+
+
 
 function MovieSchedule(props) {
-    
+ let location = useLocation();
  const dispatch = useDispatch();
-
- getCinemasByMovieId(1).then((response) =>{
+ const cinemas = useSelector(selectAllCinemas);
+ getCinemasByMovieId(location.state.movie.id).then((response) =>{
     let cinemas = response.data.map((cinema) => 
         ({
             id: cinema.cinemaId,
@@ -25,17 +27,15 @@ function MovieSchedule(props) {
     )
     dispatch(AddCinemas(cinemas));
 })
-const cinemas = useSelector(selectAllCinemas)
 
     return (
         <React.Fragment>
             <Header/>
             <div className="schedule-upper-page">
-                <h1>Parasite</h1>
-                <h4>Thriller</h4>
+                <h1>{location.state.movie.movie_name}</h1>
+                <h3>Genre: {location.state.movie.genre}</h3>
+                
             </div>
-            <Divider orientation="left"></Divider>
-            <MovieScheduleDatePicker/>
             <Divider orientation="left"></Divider>
          { 
          cinemas.map((cinema)=>(
