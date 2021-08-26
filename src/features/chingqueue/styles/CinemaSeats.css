@@ -45,7 +45,7 @@
   text-align: center;
 }
 
-.seat.selected {
+.seat.ant-popover-open {
   background-color: #6feaf6;
 }
 

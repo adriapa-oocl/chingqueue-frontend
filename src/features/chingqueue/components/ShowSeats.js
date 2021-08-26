@@ -1,6 +1,6 @@
-import { Col, Popconfirm, Row, message, Modal } from 'antd'
+import { Col, Row, message, Modal } from 'antd'
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector} from 'react-redux'
 import { getAllCinemaSeatsByCinemaId } from '../../apis/CinemaSeatsApi'
 import { AddAllCinemaSeats, selectAllCinemaSeatIds } from '../components/reducers/CinemaSeatReducer'
 import Seat from './Seat'
@@ -9,6 +9,8 @@ import "./../styles/CinemaSeats.css"
 function ShowSeats(props) {
     const dispatch = useDispatch()
     const [currSeat, setSeat] = useState(false);
+    const [payment,setPayment] = useState(false);
+    const [total,setTotal] = useState(0);
 
     function success() {
         Modal.success({
@@ -19,9 +21,7 @@ function ShowSeats(props) {
             
             </div>
           ),
-          onOk() {
-            message.info('You have successfully reserved this seat');
-          },
+      
         });
       }
 
@@ -46,15 +46,20 @@ function ShowSeats(props) {
     const [isModalVisible] = useState(false);
     let mySeat = currSeat ? "selected" : "";
     let ticketPrice = 240;
-    let bookFee = 49;
-    let total = 0;
+    let bookFee = 50;
+    // let total = 0;
     let selectedSeat = 0;
-    if (mySeat === "selected") {
-        selectedSeat = selectedSeat + 1;
-        total = ticketPrice + total + bookFee;
-    }
-    
+
+
+    // if (payment) {
+    //     selectedSeat = selectedSeat + 1;
    
+    //     setTotal(total+290)
+      
+    //     console.log("hi")
+    // }
+    
+  
     
     const seats = useSelector(selectAllCinemaSeatIds)
     console.log(seats)
@@ -68,9 +73,9 @@ function ShowSeats(props) {
                 seats.map((id) => 
                 (
                 <Col> 
-                {/* <div className={`seat ${mySeat}`} onClick={() => setSeat('selected')}> */}
-                    <Seat key={id} seatId={id}/> 
-                    {/* </div> */}
+
+                    <Seat key={id} seatId={id} setTotal = {setTotal} total={total}/> 
+       
                     </Col>
                 )
                 )}
@@ -86,3 +91,5 @@ function ShowSeats(props) {
 }
 
 export default ShowSeats
+
+

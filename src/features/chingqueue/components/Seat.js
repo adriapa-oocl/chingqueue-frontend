@@ -8,20 +8,20 @@ function Seat(props) {
     const dispatch = useDispatch();
     const seat = useSelector((state) => selectCinemaSeatById(state, props.seatId))
     const allSeats = useSelector(selectAllCinemaSeats)
-     const [currSeat, setSeat] = useState(false);
+     const [currSeat, setSeat] = useState("");
+     const [occupiedSeat,setOccupied] = useState(false);
      let mySeat = currSeat ? "selected" : "";
-    //  useEffect(() => {
-
-    //     allSeats.filter(seat=>!seat.availability).map(notAvail=>{
-    //         setSeat('occupied')
-    //         console.log("bat ganon")
-    //     })
+     useEffect(() => {
+            if(seat.availability===false){
+          setOccupied("occupied");
+                
+            }else{
+                setOccupied("");
+            }
   
-    // }, [])
+    }, [])
 
    
-
-      
 
     function handleClick() {
         const seatUpdate = {
@@ -34,12 +34,16 @@ function Seat(props) {
 
         if(seat.availability===true){
         updateCinemaSeat(seat.seat_id, {updateInfo:seatUpdate}).then(response =>{
+              setOccupied("occupied");
                    dispatch(UpdateCinemaSeat({id:seat.id, updateSeat:response.data}))   
-                  message.success("Seat is successfully reserved.")       
+                  message.success("Seat is successfully reserved.")    
+                  props.setTotal(props.total+290)
+         
+                    
         })
         }else{
             message.error('This seat is already taken');
-            mySeat="occupied";
+          
         }
         
     }
@@ -51,13 +55,14 @@ function Seat(props) {
                 onConfirm = {handleClick}
                 okText="Yes"
                 cancelText="No">
-                        <div className={`seat ${mySeat}`} onClick={() => setSeat('selected')}>
+                        <div className={`seat ${occupiedSeat}`} onClick={() => setSeat('selected')}>
                         {seat.seat_id}
                 </div>
                      
                 </Popconfirm>
         
             </span>
+                
         </div>
 
     )
