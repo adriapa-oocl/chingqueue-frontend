@@ -2,7 +2,6 @@ import React from "react";
 import Header from "./Header";
 import '../styles/movieSchedule.css';
 import { Divider } from "antd";
-import MovieScheduleDatePicker from "./MovieScheduleDatePicker";
 import AvailableCinema from "./AvailableCinema";
 import {AddCinemas} from './reducers/CinemaReducer';
 import {useDispatch, useSelector} from "react-redux";
@@ -33,12 +32,10 @@ function MovieSchedule(props) {
         <React.Fragment>
             <Header/>
             <div className="schedule-upper-page">
-                <p>{location.state.movie.movie_name}</p>
-                <p>{location.state.movie.genre}</p>
+                <h1>{location.state.movie.movie_name}</h1>
+                <h3>Genre: {location.state.movie.genre}</h3>
                 
             </div>
-            <Divider orientation="left"></Divider>
-            <MovieScheduleDatePicker/>
             <Divider orientation="left"></Divider>
          { 
          cinemas.map((cinema)=>(
