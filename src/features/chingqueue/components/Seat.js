@@ -13,7 +13,6 @@ function Seat(props) {
             cinema_id: seat.cinema_id, 
             availability: !seat.availability
         }
-        // console.log(seatUpdate)
         dispatch(UpdateCinemaSeat(seatUpdate))
     }
 

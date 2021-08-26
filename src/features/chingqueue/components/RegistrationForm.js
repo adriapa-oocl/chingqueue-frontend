@@ -36,7 +36,7 @@ function RegistrationForm(props) {
 
     const validateRegistration = (userCreds) =>{
         let registrationCreds = {full_name:userCreds.fullName, username: userCreds.username, password: userCreds.password, contact_num: userCreds.phone, address: userCreds.address  };
-        addUser(registrationCreds).then((response)=>{
+        addUser(registrationCreds).then(()=>{
           message.success('Registration successful! You may now sign in.')
         props.onCloseRegisterModal()
         }).catch(()=>{

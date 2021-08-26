@@ -20,7 +20,6 @@ function ShowSeats(props) {
     })
 
     const seats = useSelector(selectAllCinemaSeatIds)
-    console.log(seats)
     return (
         <div>
             {
