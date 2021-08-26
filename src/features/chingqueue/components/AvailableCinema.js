@@ -17,7 +17,6 @@ function AvailableCinema(props){
         <span className="list-button">         
         {
             props.cinema.cinema_timeslot_list.map((timeslot)=>(
-                // <Link to={{pathname: "/ShowSeats", state: {cinemaId: props.cinema.id}}}><Button className="button-time-slot">{timeslot}</Button></Link>
                 <Button className="button-time-slot" onClick={showModal}>{timeslot}</Button>
             ))
         }
