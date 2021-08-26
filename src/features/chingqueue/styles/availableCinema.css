@@ -6,5 +6,11 @@
 }
 
 .button-time-slot{
-    margin-left: 20px;
+    position: absolute;
+    right: 45%;
+    top: 17%;
+}
+
+.cinema-name-location{
+    left: 10px;
 }

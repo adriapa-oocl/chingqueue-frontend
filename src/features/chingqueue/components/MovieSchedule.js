@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import '../styles/movieSchedule.css';
+import '../styles/movieDetail.css';
 import { Divider } from "antd";
 import AvailableCinema from "./AvailableCinema";
 import {AddCinemas} from './reducers/CinemaReducer';
@@ -27,16 +28,30 @@ function MovieSchedule(props) {
     )
     dispatch(AddCinemas(cinemas));
 })
+const contentStyle = {
+        height: '450px',
+        color: '#fff',
+        lineHeight: '160px',
+        textAlign: 'center',
+        background: '#364d79',
+    };
+
 
     return (
         <React.Fragment>
             <Header/>
-            <div className="schedule-upper-page">
-                <h1>{location.state.movie.movie_name}</h1>
-                <h3>Genre: {location.state.movie.genre}</h3>
+            <img ant="movie 1" className="movie-banner" alt="movie" src={location.state.movie.movie_img}/>
+            <div className="trim">
+                <h3 style={contentStyle}><img ant="movie 1" className="cover-photo" alt="Movie 1" src={location.state.movie.movie_img}/></h3>
+                <div className="row">
+                    <div className="box boxTransparentTitle">
+                        <h1 className="movieName">{location.state.movie.movie_name}</h1>
+                        <h3 className="genre">Genre: {location.state.movie.genre}</h3>
+                    </div>
+                </div>
                 
             </div>
-            <Divider orientation="left"></Divider>
+            <Divider orientation="left">Available Cinema</Divider>
          { 
          cinemas.map((cinema)=>(
             <AvailableCinema key={cinema.id} cinema={cinema}></AvailableCinema>
