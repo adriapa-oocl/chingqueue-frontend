@@ -16,7 +16,7 @@ function MovieSchedule(props) {
  let location = useLocation();
  const dispatch = useDispatch();
  const cinemas = useSelector(selectAllCinemas);
- getCinemasByMovieId(1).then((response) =>{
+ getCinemasByMovieId(location.state.movie.id).then((response) =>{
     let cinemas = response.data.map((cinema) => 
         ({
             id: cinema.cinemaId,
@@ -29,17 +29,13 @@ function MovieSchedule(props) {
     dispatch(AddCinemas(cinemas));
 })
 
-
-console.log('location:', location)
-
-
-
     return (
         <React.Fragment>
             <Header/>
             <div className="schedule-upper-page">
                 <p>{location.state.movie.movie_name}</p>
                 <p>{location.state.movie.genre}</p>
+                
             </div>
             <Divider orientation="left"></Divider>
             <MovieScheduleDatePicker/>
