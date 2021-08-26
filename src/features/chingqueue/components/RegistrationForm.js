@@ -35,14 +35,14 @@ const tailFormItemLayout = {
 function RegistrationForm(props) {
 
     const validateRegistration = (userCreds) =>{
-       
         let registrationCreds = {full_name:userCreds.fullName, username: userCreds.username, password: userCreds.password, contact_num: userCreds.phone, address: userCreds.address  };
         addUser(registrationCreds).then((response)=>{
+          message.success('Registration successful! You may now sign in.')
         props.onCloseRegisterModal()
         }).catch(()=>{
             onFinishFailed();
         })
-    };
+    }
 
     const onFinishFailed = () =>{
       message.error('Invalid User Details')
@@ -98,10 +98,10 @@ function RegistrationForm(props) {
               if (!value || getFieldValue('password') === value) {
                 return Promise.resolve();
               }
-
+              
               return Promise.reject(new Error('The two passwords that you entered do not match!'));
             },
-          }),
+          })
         ]}
       >
         <Input.Password />
