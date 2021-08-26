@@ -8,23 +8,23 @@ import { selectAllUser } from '../components/reducers/UserReducer'
 
 function AvailableCinema(props){
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const userFromState = useSelector(selectAllUser)  
+    const userFromState = useSelector(selectAllUser)
     const handleCancel = () => {
         setIsModalVisible(false);
       };
 
       const showModal = () => {
         if (userFromState.length === 0) {
-            message.error('You must log-in first before being able to review!');
+            message.error('You must log-in first before being able to reserve!');
         } else {
             setIsModalVisible(true);
         }
       };
     const data = [
-        <span className="list-button"onClick={showModal}>         
-        { 
+        <span className="list-button"onClick={showModal}>
+        {
             props.cinema.cinema_timeslot_list.map((timeslot)=>(
-                <Button className="button-time-slot" >{timeslot}</Button>
+                <Button className="button-time-slot" onClick={showModal}>{timeslot}</Button>
             ))
         }
         </span>
@@ -33,7 +33,7 @@ function AvailableCinema(props){
     return(
         <React.Fragment>
             <div className="available-cinema">
-           {  console.log(props.cinema.cinema_timeslot_list)}
+
             <List
                 bordered
                  dataSource={data}

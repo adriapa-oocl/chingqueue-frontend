@@ -28,7 +28,7 @@ function LeaveReview(props) {
             Leave a review
         </Button>
         <Modal title="Leave a review" visible={isModalVisible} onCancel={handleCancel} okButtonProps={{ style: { display: 'none' } }}>
-            <MovieReviews movieDetailsId={props.movieDetailsId} userId={userFromState} isReviewModalVisible={setIsModalVisible}/>
+            <MovieReviews movieDetailsId={props.movieDetailsId} user={userFromState} isReviewModalVisible={setIsModalVisible}/>
         </Modal>
         </>
     );

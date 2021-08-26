@@ -1,4 +1,4 @@
-import { Col, Row, message, Modal } from 'antd'
+import { Col, Row, Modal } from 'antd'
 import React, { useState } from 'react'
 import { useDispatch, useSelector} from 'react-redux'
 import { getAllCinemaSeatsByCinemaId } from '../../apis/CinemaSeatsApi'
@@ -8,8 +8,6 @@ import "./../styles/CinemaSeats.css"
 
 function ShowSeats(props) {
     const dispatch = useDispatch()
-    const [currSeat, setSeat] = useState(false);
-    const [payment,setPayment] = useState(false);
     const [total,setTotal] = useState(0);
 
     function success() {
@@ -44,11 +42,8 @@ function ShowSeats(props) {
     })
 
     const [isModalVisible] = useState(false);
-    let mySeat = currSeat ? "selected" : "";
-    let ticketPrice = 240;
     let bookFee = 50;
     const seats = useSelector(selectAllCinemaSeatIds)
-    console.log(seats)
     return (
         <div className="seatssContainer">
             <Modal title="QR Payment" visible={isModalVisible}>

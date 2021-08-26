@@ -13,7 +13,6 @@ function NowShowingList(){
     const dispatch = useDispatch()
 
     function MapDetailsToMovie(movie) {
-        console.log(movie)
         getMovieDetails(movie.movie_id).then((response) => {
             let movieDetail = response.data
                 const movieToMap = 
