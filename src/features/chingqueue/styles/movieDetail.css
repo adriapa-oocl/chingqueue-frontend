@@ -43,11 +43,11 @@
     color: white;
     text-align: left;
     padding-left: 20px;
-    padding-right: 10px;
+    padding-right: 10px;   
 }
 
 .boxTransparentTitle{
-    background-color: rgba(243, 239, 239, 0.596);
+    background-color: rgba(168, 168, 168, 0.836);
     color: #fff;
     padding-top: 5px;
     padding-bottom: 5px;
