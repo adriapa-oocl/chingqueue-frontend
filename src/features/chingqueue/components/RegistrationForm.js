@@ -122,7 +122,11 @@ function RegistrationForm(props) {
       <Form.Item
         name="phone"
         label="Contact number"
-    
+        rules={[{
+          required:true,
+          message:"Please input your contact number!"
+        }]
+      }
       >  
         <Input/>
       </Form.Item>
