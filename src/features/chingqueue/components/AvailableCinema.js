@@ -3,10 +3,12 @@ import React from "react";
 import {useState} from "react";
 import '../styles/availableCinema.css';
 import ShowSeats from "./ShowSeats";
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { selectAllUser } from '../components/reducers/UserReducer'
+import { RemoveAllCinemaSeats } from '../components/reducers/CinemaSeatReducer'
 
 function AvailableCinema(props){
+    const dispatch = useDispatch()
     const [isModalVisible, setIsModalVisible] = useState(false);
     const userFromState = useSelector(selectAllUser)
     const handleCancel = () => {
@@ -17,6 +19,7 @@ function AvailableCinema(props){
         if (userFromState.length === 0) {
             message.error('You must log-in first before being able to reserve!');
         } else {
+            dispatch(RemoveAllCinemaSeats())
             setIsModalVisible(true);
         }
       };
