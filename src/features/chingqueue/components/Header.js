@@ -51,7 +51,7 @@ const Header = () => {
     <Header >
       <div className="location">
         <Link to = "/">
-          <img  className="responsive " alt="ChingQueue" src="https://i.imgur.com/bP82k1G.png" />
+          <img  className="responsive " alt="ChingQueue" src="https://i.imgur.com/bP82k1G.png"/>
         </Link>
         
         <span className="username">
