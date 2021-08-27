@@ -1,27 +1,21 @@
-import { List, Typography, Button, Modal, message } from "antd";
+import { List, Typography, Button, Modal } from "antd";
 import React from "react";
 import {useState} from "react";
 import '../styles/availableCinema.css';
 import ShowSeats from "./ShowSeats";
-import { useDispatch, useSelector } from 'react-redux'
-import { selectAllUser } from '../components/reducers/UserReducer'
+import { useDispatch } from 'react-redux'
 import { RemoveAllCinemaSeats } from '../components/reducers/CinemaSeatReducer'
 
 function AvailableCinema(props){
     const dispatch = useDispatch()
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const userFromState = useSelector(selectAllUser)
     const handleCancel = () => {
         setIsModalVisible(false);
       };
 
       const showModal = () => {
-        if (userFromState.length === 0) {
-            message.error('You must log-in first before being able to reserve!');
-        } else {
-            dispatch(RemoveAllCinemaSeats())
-            setIsModalVisible(true);
-        }
+        dispatch(RemoveAllCinemaSeats())
+        setIsModalVisible(true);
       };
     const data = [
         <span className="list-button"onClick={showModal}>

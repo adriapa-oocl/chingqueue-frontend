@@ -4,8 +4,11 @@ import { selectCinemaSeatById, UpdateCinemaSeat } from '../components/reducers/C
 import {Popconfirm, message } from 'antd';
 import {updateCinemaSeat} from '../../apis/CinemaSeatsApi'
 import "./../styles/CinemaSeats.css"
+import { selectAllUser } from '../components/reducers/UserReducer'
+
 function Seat(props) {
     const dispatch = useDispatch();
+    const userFromState = useSelector(selectAllUser)  
     const seat = useSelector((state) => selectCinemaSeatById(state, props.seatId))
      const [occupiedSeat,setOccupied] = useState(false);
      
@@ -22,24 +25,28 @@ function Seat(props) {
 
 
     function handleClick() {
-        const seatUpdate = {
-            seatId: seat.seat_id,
-            cinemaId: seat.cinema_id,
-            availability: !seat.availability
-        }
+        if (userFromState.length === 0) {
+            message.error('You must log-in first before being able to reserve!');
+        } else {
+            const seatUpdate = {
+                seatId: seat.seat_id,
+                cinemaId: seat.cinema_id,
+                availability: !seat.availability
+            }
 
-        if(seat.availability===true){
-        updateCinemaSeat(seat.seat_id, {updateInfo:seatUpdate}).then(response =>{
-              setOccupied("occupied");
-                   dispatch(UpdateCinemaSeat({id:seat.id, updateSeat:response.data}))
-                  message.success("Seat is successfully reserved.")
-                  props.setTotal(props.total+290)
+            if(seat.availability===true){
+            updateCinemaSeat(seat.seat_id, {updateInfo:seatUpdate}).then(response =>{
+                setOccupied("occupied");
+                    dispatch(UpdateCinemaSeat({id:seat.id, updateSeat:response.data}))
+                    message.success("Seat is successfully reserved.")
+                    props.setTotal(props.total+290)
 
 
-        })
-        }else{
-            message.error('This seat is already taken');
+            })
+            }else{
+                message.error('This seat is already taken');
 
+            }
         }
 
     }
