@@ -14,10 +14,13 @@ const cinemaSlice = createSlice({
         AddCinemas(state, action) {
             cinemaAdapter.addMany(state, action.payload)
         },
+        RemoveCinemas(state, action) {
+            cinemaAdapter.removeAll(state)
+        }
     }
 });
 
-export const {AddCinemas} = cinemaSlice.actions;
+export const {AddCinemas, RemoveCinemas} = cinemaSlice.actions;
 export const {selectAll: selectAllCinemas, selectIds: selectCinemaIds} = cinemaAdapter.getSelectors((state) => state.cinemas);
 
 export default cinemaSlice.reducer;
