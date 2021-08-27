@@ -48,7 +48,7 @@ function ShowSeats(props) {
         <div className="seatssContainer">
             <Modal title="QR Payment" visible={isModalVisible}>
             </Modal>
-          
+            <div className="seat-reservation">
             <Row>
             {
                 seats.map((id) => 
@@ -61,6 +61,7 @@ function ShowSeats(props) {
                 )
                 )}
             </Row>
+            </div>
             
           <div className="showcaseSpace">
           <center><div className="screen"><span className="spanScreen">Screen</span></div></center>
