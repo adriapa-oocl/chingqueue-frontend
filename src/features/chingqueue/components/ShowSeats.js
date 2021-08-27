@@ -17,6 +17,9 @@ function ShowSeats(props) {
             <div>
               {<img id='barcode' src="https://i.imgur.com/x8O8vZG.png" alt="" title="Gcash ni JC" width="270" height="300" /> }
               <br/>
+              <br/>
+              <span>Gcash name: Juan Carlos Salvador</span><br/>
+              <span>Gcash number: 09151924816</span><br/>
               <span>For further concerns, contact us @ 09151924816</span>
             </div>
           ),

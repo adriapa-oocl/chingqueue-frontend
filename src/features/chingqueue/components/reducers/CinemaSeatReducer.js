@@ -20,10 +20,13 @@ const cinemaSeatSlice = createSlice({
                 changes: action.payload.updateSeat
             })
         },
+        RemoveAllCinemaSeats(state, action) {
+            cinemaSeatAdapter.removeAll(state)
+        }
     }
 });
 
-export const {AddAllCinemaSeats, UpdateCinemaSeat} = cinemaSeatSlice.actions;
+export const {AddAllCinemaSeats, UpdateCinemaSeat, RemoveAllCinemaSeats} = cinemaSeatSlice.actions;
 export const {selectAll: selectAllCinemaSeats, selectIds: selectAllCinemaSeatIds, selectById: selectCinemaSeatById} = cinemaSeatAdapter.getSelectors((state) => state.cinemaSeats);
 
 export default cinemaSeatSlice.reducer;

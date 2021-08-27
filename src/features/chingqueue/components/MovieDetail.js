@@ -10,6 +10,7 @@ import { AddAllMovieReviewsToState, selectAllMovieReviews } from "./reducers/Mov
 import ReviewList from "./ReviewList";
 import { getUsers } from '../../apis/UserApi'
 import { useHistory } from "react-router-dom";
+import { RemoveCinemas } from "./reducers/CinemaReducer";
 
 function MovieDetail(){
     let history = useHistory();
@@ -45,6 +46,7 @@ function MovieDetail(){
     })
    
     const goToSchedule =() => {
+        dispatch(RemoveCinemas())
         history.push({
             pathname: `/MovieSchedule`,
             state: { movie: state.movie }
